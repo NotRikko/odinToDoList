@@ -6,7 +6,7 @@ const ToDoItem = (title, description, dueDate, priority, notes, checklist) => {
         dueDate: dueDate,
         priority: priority,
         notes: Array.isArray(notes) ? notes: [notes],
-        checklist: checklist
+        checkBox: checkBox
     }
 }
 
