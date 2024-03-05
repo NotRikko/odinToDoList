@@ -1,27 +1,32 @@
 import { ToDoItem } from "./objectCreation";
+import './style.css';
 
 function displayToDoItems() {
     let toDoItemArray = [];
 
 }
 
-const popUpFormMethods = () => {
+const popUpFormMethods = {
 
-    function createFormElement(elementType, attributes = {}) {
+     createFormElement(elementType, attributes = {}) {
         const element = document.createElement(elementType)
         Object.assign(element, attributes);
         return element
-    }
+     },
     
-    function createToDoPopUpForm() {
-        const popUpForm = createFormElement("form");
-        const titleInput = createFormElement("input", { type: "text", name: "title" });
-        const descriptionInput = createFormElement("input", {type: "text", name:"description"});
-        const dueDateInput = createFormElement("input", { type: "date", name: "date" });
-        const priorityInput = createFormElement("input", { type: "text", name: "priority"});
-        const noteInput = createFormElement("input", { type: "text", name: "notes"});
-        const checkBox = createFormElement("input", { type: "checkbox", name: "checkBox" });
-        const submitBtn = createFormElement("input", { type: "submit" });
+     createToDoPopUpForm() {
+        const popUpContainer = document.createElement("div");
+        popUpContainer.id = "popUpContainer";
+        document.body.appendChild(popUpContainer);
+
+        const popUpForm = this.createFormElement("form");
+        const titleInput = this.createFormElement("input", { type: "text", name: "title" });
+        const descriptionInput = this.createFormElement("input", {type: "text", name:"description"});
+        const dueDateInput = this.createFormElement("input", { type: "date", name: "date" });
+        const priorityInput = this.createFormElement("input", { type: "text", name: "priority"});
+        const noteInput = this.createFormElement("input", { type: "text", name: "notes"});
+        const checkBox = this.createFormElement("input", { type: "checkbox", name: "checkBox" });
+        const submitBtn = this.createFormElement("input", { type: "submit" });
         submitBtn.addEventListener("click", ToDoItem)
 
         popUpForm.addEventListener("submit", function(event) {
@@ -39,21 +44,26 @@ const popUpFormMethods = () => {
             );
             
             console.log(toDoItem); 
+            console.log("deleted!");
+            popUpContainer.parentNode.removeChild(popUpContainer);
+
         })
     
         popUpForm.append(
             titleInput,
             dueDateInput,
+            descriptionInput,
             priorityInput,
             noteInput,
             checkBox,
             submitBtn
         );
+        
+        popUpContainer.appendChild(popUpForm);
     
         return popUpForm;
     }
-    return createToDoPopUpForm
-}
+};
 
 
 export {popUpFormMethods}

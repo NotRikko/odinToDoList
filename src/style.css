@@ -1,0 +1,32 @@
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+#popUpContainer {
+    position:absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    border: 1px solid black;
+    padding: 150px;
+}
+
+#mainContainer {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    
+}
+
+#sideBar {
+    display: flex;
+    flex-direction: column;
+    grid-column: 1;
+}
+
+#projectMethods,
+#toDoMethods {
+    display: flex;
+    flex-direction: column;
+}

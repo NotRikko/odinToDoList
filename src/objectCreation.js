@@ -1,11 +1,11 @@
-const ToDoItem = (title, description, dueDate, priority, notes, checklist) => {
+const ToDoItem = (title, description, dueDate, priority, notes, checkBox) => {
 
     return {
         title: title,
         description: description,
         dueDate: dueDate,
         priority: priority,
-        notes: Array.isArray(notes) ? notes: [notes],
+        notes: notes,
         checkBox: checkBox
     }
 }
