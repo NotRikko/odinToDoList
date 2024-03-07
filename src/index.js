@@ -1,8 +1,8 @@
-import { popUpFormMethods } from "./DOMLogic";
+import { popUpFormMethods, projectDOM } from "./DOMLogic";
 
-let createToDoItemBtn = document.getElementById("createNewToDo");
-
-/*createToDoItemBtn.addEventListener("click", popUpFormMethods.createToDoPopUpForm());*/
+const createToDoItemBtn = document.getElementById("createNewToDo");
+const createProjectItemBtn = document.getElementById("createNewProject");
+const viewProjectsBtn = document.getElementById("projectCatalog")
 
 createToDoItemBtn.addEventListener("click", function() {
     if(document.getElementById("popUpContainer")) {
@@ -10,3 +10,17 @@ createToDoItemBtn.addEventListener("click", function() {
     }
     popUpFormMethods.createToDoPopUpForm();
 });
+
+createProjectItemBtn.addEventListener("click", function() {
+    if(document.getElementById("popUpContainer")) {
+        return
+    }
+    popUpFormMethods.createProjectForm();
+})
+
+viewProjectsBtn.addEventListener("click", function() {
+    if(document.getElementById("projectViewer")) {
+        return
+    }
+    projectDOM.displayAllProjects();
+})

@@ -1,12 +1,13 @@
-import {ToObjectMethods} from './ToDoObjectMethods'
-import {ToDoItem} from './objectCreation'
-import {containsObject} from './commonFuncs'
+import {ToObjectMethods} from './ToDoObjectMethods';
+import {ToDoItem} from './objectCreation';
+import {containsObject} from './commonFuncs';
+import { ProjectItem } from './objectCreation';
 
 const ProjectManager =(() => {
     const ProjectList = [];
 
     function createProjectItem(title, description) {
-        const newItem = new ProjectItem(title, description);
+        const newItem = ProjectItem(title, description);
         ProjectList.push(newItem);
     }
     
@@ -46,5 +47,5 @@ const EditProjectMethods = () => {
     }
 
 }
-export {ProjectItem, ProjectManager, EditProjectMethods}
+export {ProjectManager, EditProjectMethods}
 
